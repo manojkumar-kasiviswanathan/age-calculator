@@ -39,6 +39,7 @@ class AgeCalculatorTest {
                 org.junit.jupiter.params.provider.Arguments.of(LocalDate.now().plusDays(1), "You are not born yet, but you know how to program!"),
                 org.junit.jupiter.params.provider.Arguments.of(LocalDate.now(), "Are you sure you were born today?"),
                 org.junit.jupiter.params.provider.Arguments.of(LocalDate.now().minusYears(33), "Happy Birthday!\nYour age is: 33 years."),
+                org.junit.jupiter.params.provider.Arguments.of(LocalDate.now().minusYears(101), "Happy Birthday!\n Amazing, you are 101 years old. That is really impressive!"),
                 org.junit.jupiter.params.provider.Arguments.of(LocalDate.now().minusYears(101).minusDays(1), "Amazing, you are 101 years old. That is really impressive!"),
                 org.junit.jupiter.params.provider.Arguments.of(LocalDate.now().minusYears(25).minusDays(1), "Your age is: 25 years.")
         );

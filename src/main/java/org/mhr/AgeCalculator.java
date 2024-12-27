@@ -51,6 +51,8 @@ public class AgeCalculator {
             case "TODAY" -> "Are you sure you were born today?";
             case "BIRTHDAY" -> "Happy Birthday!\nYour age is: " + age + " years.";
             case "CENTENARIAN" -> "Amazing, you are " + age + " years old. That is really impressive!";
+            case "BIRTHDAY_AND_CENTENARIAN" ->
+                    "Happy Birthday!\n Amazing, you are " + age + " years old. That is really impressive!";
             default -> "Your age is: " + age + " years.";
         };
     }
@@ -64,14 +66,17 @@ public class AgeCalculator {
      * @return A string representing the condition (e.g., FUTURE, TODAY, BIRTHDAY, etc.).
      */
     private static String getDateCondition(LocalDate parsedDateOfBirth, LocalDate today, int age) {
-        if (parsedDateOfBirth.isAfter(today)) {
+        boolean isBirthday = parsedDateOfBirth.getMonth() == today.getMonth() && parsedDateOfBirth.getDayOfMonth() == today.getDayOfMonth();
+        if (age >= 100 && isBirthday) {
+            return "BIRTHDAY_AND_CENTENARIAN";
+        } else if (age >= 100) {
+            return "CENTENARIAN";
+        } else if (parsedDateOfBirth.isAfter(today)) {
             return "FUTURE";
         } else if (parsedDateOfBirth.equals(today)) {
             return "TODAY";
         } else if (parsedDateOfBirth.getMonth() == today.getMonth() && parsedDateOfBirth.getDayOfMonth() == today.getDayOfMonth()) {
             return "BIRTHDAY";
-        } else if (age >= 100) {
-            return "CENTENARIAN";
         } else {
             return "AGE";
         }
