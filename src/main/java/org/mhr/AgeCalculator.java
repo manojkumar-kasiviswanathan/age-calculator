@@ -43,8 +43,8 @@ public class AgeCalculator {
             } else {
                 String[] dateParts = inputDateOfBirth.split("/");
                 Month month = Month.of(Integer.parseInt(dateParts[1]));
-                int year = Integer.parseInt(dateParts[0]);
-                throw new IllegalArgumentException("Invalid date: " + month + " " + year + " is not a valid date.");
+                int day = Integer.parseInt(dateParts[2]);
+                throw new IllegalArgumentException("Invalid date: " + month + " " + day + " is not a valid date.");
             }
         }
     }
