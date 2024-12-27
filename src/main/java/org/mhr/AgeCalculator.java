@@ -1,9 +1,11 @@
 package org.mhr;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.util.Scanner;
 
 /**
@@ -29,11 +31,21 @@ public class AgeCalculator {
      * @return A valid LocalDate object.
      */
     static LocalDate validateAndParseDate(String inputDateOfBirth) {
-        DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        // Using ResolverStyle.STRICT to ensure strict date parsing
+        // If we use ResolverStyle.STRICT, we need to use 'uuuu' instead of 'yyyy' in the format
+        // Source: https://stackoverflow.com/questions/41103603/issue-with-datetimeparseexception-when-using-strict-resolver-style
+        DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("uuuu/MM/dd").withResolverStyle(ResolverStyle.STRICT);
         try {
             return LocalDate.parse(inputDateOfBirth, DATE_FORMATTER);
-        } catch (DateTimeParseException e) {
-            throw new IllegalArgumentException("Invalid date format. Please enter the date in YYYY/MM/DD format.");
+        } catch (DateTimeParseException error) {
+            if (error.getMessage().contains("index")) {
+                throw new IllegalArgumentException("Invalid date format. Please enter the date in YYYY/MM/DD format.");
+            } else {
+                String[] dateParts = inputDateOfBirth.split("/");
+                Month month = Month.of(Integer.parseInt(dateParts[1]));
+                int year = Integer.parseInt(dateParts[0]);
+                throw new IllegalArgumentException("Invalid date: " + month + " " + year + " is not a valid date.");
+            }
         }
     }
 
