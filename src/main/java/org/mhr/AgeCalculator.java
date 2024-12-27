@@ -50,7 +50,7 @@ public class AgeCalculator {
             case "FUTURE" -> "You are not born yet, but you know how to program!";
             case "TODAY" -> "Are you sure you were born today?";
             case "BIRTHDAY" -> "Happy Birthday!\nYour age is: " + age + " years.";
-            case "CENTENARIAN" -> "Wow, you are " + age + " years old That's impressive!";
+            case "CENTENARIAN" -> "Amazing, you are " + age + " years old. That is really impressive!";
             default -> "Your age is: " + age + " years.";
         };
     }
