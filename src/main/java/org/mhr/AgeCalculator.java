@@ -75,7 +75,7 @@ public class AgeCalculator {
             return "FUTURE";
         } else if (parsedDateOfBirth.equals(today)) {
             return "TODAY";
-        } else if (parsedDateOfBirth.getMonth() == today.getMonth() && parsedDateOfBirth.getDayOfMonth() == today.getDayOfMonth()) {
+        } else if (isBirthday) {
             return "BIRTHDAY";
         } else {
             return "AGE";
