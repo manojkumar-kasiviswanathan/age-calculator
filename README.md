@@ -86,7 +86,7 @@ mvn test
 ```
 
 ## Generate Test Coverage
-The project is integrated with the JaCoCo Maven Plugin to measure and analyze code coverage for JUnit tests. By configuring JaCoCo in the pom.xml.
+The project utilizes the JaCoCo Maven Plugin to measure and analyze code coverage for JUnit tests, with its configuration defined in the pom.xml file.
 
 To generate the JaCoCo coverage report
 ```shell

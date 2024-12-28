@@ -35,8 +35,8 @@ class AgeCalculatorTest {
 
     @ParameterizedTest
     @CsvSource({
-            "2023/02/29, Invalid date: FEBRUARY 2023 is not a valid date.",
-            "2024/06/31, Invalid date: JUNE 2024 is not a valid date."
+            "2023/02/29, Invalid date: FEBRUARY 29 is not a valid date.",
+            "2024/06/31, Invalid date: JUNE 31 is not a valid date."
     })
     void testValidateAndParseDate_InvalidDate(String dateOfBirth, String expectedErrorMessage) {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
