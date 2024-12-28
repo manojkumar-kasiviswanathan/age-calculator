@@ -121,7 +121,7 @@ target/site/jacoco/index.html
                     └── AgeCalculatorTest.java
 
 ```
-## Code Flow
+## Code Implementation
 
 ![App Screenshot](age-calculator-app-implementation.jpg)
 
