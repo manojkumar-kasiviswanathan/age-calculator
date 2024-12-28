@@ -13,6 +13,8 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.junit.jupiter.api.version>5.11.4</org.junit.jupiter.api.version>
+        <org.junit.jupiter.params.version>5.11.4</org.junit.jupiter.params.version>
+        <org.jacoco.maven.plugin.version>0.8.12</org.jacoco.maven.plugin.version>
     </properties>
 
     <dependencies>
@@ -21,7 +23,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.11.4</version>
+            <version>${org.junit.jupiter.api.version}</version>
             <scope>test</scope>
         </dependency>
         <!--Junit Base-->
@@ -29,10 +31,37 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
-            <version>5.11.4</version>
+            <version>${org.junit.jupiter.params.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- Parameterized Tests -->
         <!--Junit for UnitTest-->
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Used to Generate Junit reports-->
+            <!--More details -https://www.baeldung.com/jacoco-->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${org.jacoco.maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Used to Generate Junit reports-->
+        </plugins>
+    </build>
 </project>
