@@ -51,7 +51,7 @@ brew install maven
 ### Clone the Repository
 
 ```shell
-git clone https://github.com/your-username/age-calculator.git
+git clone https://github.com/manojkumar-kasiviswanathan/age-calculator.git
 cd age-calculator
 ```
 
