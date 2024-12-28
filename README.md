@@ -103,20 +103,23 @@ target/site/jacoco/index.html
 ## Project Structure
 
 ```
-age-calculator/
-├── src/
-│   ├── main/
-│   │   └── java/
-│   │       └── org/
-│   │           └── mhr/
-│   │               └── AgeCalculator.java
-│   └── test/
-│       └── java/
-│           └── org/
-│               └── mhr/
-│                   └── AgeCalculatorTest.java
+.
+├── README.md
+├── age-calculator-app-implementation.jpg
 ├── pom.xml
-└── README.md
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── org
+    │   │       └── mhr
+    │   │           └── AgeCalculator.java
+    │   └── resources
+    └── test
+        └── java
+            └── org
+                └── mhr
+                    └── AgeCalculatorTest.java
+
 ```
 ## Code Flow
 
