@@ -30,7 +30,7 @@ public class AgeCalculator {
      * @param inputDateOfBirth The user-provided date string.
      * @return A valid LocalDate object.
      */
-    static LocalDate validateAndParseDate(String inputDateOfBirth) {
+    public static LocalDate validateAndParseDate(String inputDateOfBirth) {
         // Using ResolverStyle.STRICT to ensure strict date parsing
         // If we use ResolverStyle.STRICT, we need to use 'uuuu' instead of 'yyyy' in the format
         // Source: https://stackoverflow.com/questions/41103603/issue-with-datetimeparseexception-when-using-strict-resolver-style
