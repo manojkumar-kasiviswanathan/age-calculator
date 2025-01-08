@@ -36,7 +36,7 @@ public class AgeCalculator {
         // Source: https://stackoverflow.com/questions/41103603/issue-with-datetimeparseexception-when-using-strict-resolver-style
         DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("uuuu/MM/dd").withResolverStyle(ResolverStyle.STRICT);
         try {
-            return LocalDate.parse(inputDateOfBirth, DATE_FORMATTER);
+            return LocalDate.parse(inputDateOfBirth, DATE_FORMATTER);  //e.g 2020-01-01
         } catch (DateTimeParseException error) {
             if (error.getMessage().contains("index")) {
                 throw new IllegalArgumentException("Invalid date format. Please enter the date in YYYY/MM/DD format.");
@@ -64,7 +64,7 @@ public class AgeCalculator {
             case "BIRTHDAY" -> "Happy Birthday!\nYour age is: " + age + " years.";
             case "CENTENARIAN" -> "Amazing, you are " + age + " years old. That is really impressive!";
             case "BIRTHDAY_AND_CENTENARIAN" ->
-                    "Happy Birthday!\n Amazing, you are " + age + " years old. That is really impressive!";
+                    "Happy Birthday!\nAmazing, you are " + age + " years old. That is really impressive!";
             default -> "Your age is: " + age + " years.";
         };
     }
